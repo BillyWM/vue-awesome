@@ -4,10 +4,10 @@ const rimraf = require('rimraf')
 const mkdirp = require('mkdirp')
 
 const SVG_DIR = path.resolve(__dirname, '../assets/svg')
-rimraf.sync(SVG_DIR)
+// rimraf.sync(SVG_DIR)
 
 const fa2svg = require('fa2svg').default
-fa2svg(SVG_DIR)
+// fa2svg(SVG_DIR)
 
 let icons = {}
 
@@ -30,7 +30,8 @@ function extractIcons (namespace = '', toNamespace = namespace) {
       let sizeMatch = svg.match(/ viewBox="0 0 (\d+(?:\.\d+)?) (\d+(?:\.\d+)?)"/)
       let dMatch = svg.match(/ d="([^"]+)"/)
       if (!sizeMatch || !dMatch) {
-        return
+        console.log(`${filePath}\n`);
+        //return
       }
       let icon = {}
       let name = file.replace(/^fa-/, '').replace(/\.svg$/, '')
